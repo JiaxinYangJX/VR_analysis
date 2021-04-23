@@ -3,7 +3,7 @@
 '''
 Author: Jiaxin Yang
 Date: 2021-04-22 13:52:51
-LastEditTime: 2021-04-22 18:06:32
+LastEditTime: 2021-04-23 11:43:20
 LastEditors: Jiaxin Yang
 Description: 
 FilePath: \undefinedd:\Program Files (x86)\vs_python\VR_analysis\src\analysis_module.py
@@ -11,7 +11,7 @@ FilePath: \undefinedd:\Program Files (x86)\vs_python\VR_analysis\src\analysis_mo
 
 import pandas as pd
 import numpy as np
-
+from helper import *
 
 
 def spatial_hub(sturcture, sites):
@@ -22,10 +22,13 @@ def spatial_hub(sturcture, sites):
             sites:      a specific binding sites, protein, DNase, gv
     @return:
     '''
-    # cumulative counts
-    # counts difference matrix
-    # density matrix
-    # find out
+    # map the sites into 3D structure
+    dense_3D = sites_map(sturcture, sites)
+
+    # network construct, link the closed fragment adj network
+    adj_matrix = network_construct(sturcture) 
+
+    # detact community
 
     return output
 
@@ -38,6 +41,8 @@ def interaction_hub(sturcture, links):
             links:      interaction data, eQTL
     @return:
     '''
+    # think about airport
+    # 
     
     return output
 
