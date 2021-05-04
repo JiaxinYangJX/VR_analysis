@@ -3,7 +3,7 @@
 '''
 Author: Jiaxin Yang
 Date: 2021-04-22 13:52:51
-LastEditTime: 2021-05-03 17:40:20
+LastEditTime: 2021-05-03 21:48:43
 LastEditors: Jiaxin Yang
 Description: 
 FilePath: \undefinedd:\Program Files (x86)\vs_python\VR_analysis\src\analysis_module.py
@@ -229,6 +229,10 @@ def main():
     links_path   = 'links/GM_link.txt'
     chr_id       = 'chr1'
 
+    frag, xyz = read_structure(xyz_path, frag_id_path)
+    sites = read_sites(sites_path, chr_id)
+    links = read_links(links_path, chr_id)
+    
     hub_3d = spatial_hub_hiera(frag, xyz, sites)
 
     inter_hub = interaction_hub(frag, xyz, links)
