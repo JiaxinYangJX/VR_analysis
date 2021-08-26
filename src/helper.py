@@ -1,13 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
-'''
-Author: Jiaxin Yang
-Date: 2021-04-23 11:42:29
-LastEditTime: 2021-05-03 17:37:35
-LastEditors: Jiaxin Yang
-Description: 
-FilePath: \undefinedd:\Program Files (x86)\vs_python\VR_analysis\src\helper.py
-'''
+
 
 import numpy as np
 
