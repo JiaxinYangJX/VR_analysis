@@ -105,7 +105,7 @@ def spatial_hub_hiera(frag, xyz, sites, dist_thres=3, cluster_size_thres=0.5):
     sites_coord, sites_id = sites_map(frag, xyz, sites)
     
     # 2. hierachical cluster
-    my_hiera = AgglomerativeClustering(distance_threshold = dist_thres).fit(sites_coord)
+    my_hiera = AgglomerativeClustering(distance_threshold = dist_thres, n_clusters=None).fit(sites_coord)
 
     # 3. only keep the cluster with enough fragments, default: top 50%
     cluster_counter = Counter(my_hiera.labels_)
