@@ -1,12 +1,4 @@
 #!/usr/bin/python
-'''
-Author: Jiaxin Yang
-Date: 2021-04-22 13:52:51
-LastEditTime: 2021-05-03 21:48:43
-LastEditors: Jiaxin Yang
-Description: 
-FilePath: \undefinedd:\Program Files (x86)\vs_python\VR_analysis\src\analysis_module.py
-'''
 
 import pandas as pd
 import numpy as np
