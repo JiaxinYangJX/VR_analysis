@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 '''
 Author: Jiaxin Yang
 Date: 2021-04-22 13:52:51
