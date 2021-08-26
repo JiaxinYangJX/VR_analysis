@@ -214,10 +214,10 @@ def loop_3d(frag, xyz, scale = 100000, resolution = 5000, q_quantile=0.002):
 
 
 def main():
-    xyz_path     = 'structure/chr1_1502144569709.xyz.txt'
-    frag_id_path = 'structure/chr1_coordinate_mapping.txt'
-    sites_path   = 'binding/ENCSR000EMT_rep2_1_se_bwa_biorep_filtered_peaks.bed'
-    links_path   = 'links/GM_link.txt'
+    xyz_path     = '../data/structure/chr1_1502144569709.xyz.txt'
+    frag_id_path = '../data/structure/chr1_coordinate_mapping.txt'
+    sites_path   = '../data/binding/ENCSR000EMT_rep2_1_se_bwa_biorep_filtered_peaks.bed'
+    links_path   = '../data/links/GM_link.txt'
     chr_id       = 'chr1'
 
     frag, xyz = read_structure(xyz_path, frag_id_path)
