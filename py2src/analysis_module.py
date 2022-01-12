@@ -63,7 +63,7 @@ def read_links(links_path, chr_id):
     return links
 
 
-def spatial_hub_hiera(frag, xyz, sites, dist_thres=0.003, cluster_size_thres=0.9):
+def spatial_hub_hiera(frag, xyz, sites, dist_size=4, cluster_size_thres=0.95):
     '''
     @description: generate 3D spatial hubs of specific sites
 
@@ -71,8 +71,8 @@ def spatial_hub_hiera(frag, xyz, sites, dist_thres=0.003, cluster_size_thres=0.9
             frag:       frag_id
             xyz:        xyz
             sites:      a specific binding sites, protein, DNase, gv
-            dist_thres: distance quantile threshold in hierachial clustering
-            cluster_size_thres: only clusters with top 0.5 sizes
+            dist_size:  distance size threshold in hierachial clustering
+            cluster_size_thres: only clusters with top 0.95 sizes
     @return:
             group_list: list, contains the frag_id in each 3D hub
     '''
@@ -80,10 +80,10 @@ def spatial_hub_hiera(frag, xyz, sites, dist_thres=0.003, cluster_size_thres=0.9
     sites_coord, sites_id = sites_map(frag, xyz, sites)
     
     # 2. hierachical cluster
-    dist_list = pdist(sites_coord)
-    my_hiera = fclusterdata(sites_coord, t=np.quantile(dist_list, q=dist_thres),criterion='distance')
+    dist_thres = np.mean(np.linalg.norm(np.diff(xyz,axis=0),axis=1)) * dist_size 
+    my_hiera = fclusterdata(sites_coord, t=dist_thres,criterion='distance')
 
-    # 3. only keep the cluster with enough fragments, default: top 50%
+    # 3. only keep the cluster with enough fragments, default: top 95%
     cluster_counter = Counter(my_hiera)
     size_thres = np.quantile(np.array(list(cluster_counter.items()))[:,1],q=cluster_size_thres)
     group_list = []
